@@ -1,0 +1,75 @@
+.form-title {
+    color: rgba(79, 79, 75);
+}
+
+
+
+.form-img img {
+    width: 25px;
+    height: 25px;
+}
+
+.log, .pas {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input-auth {
+	width: 175px;
+	height: 25px;
+	margin-bottom: 5px;
+	border-radius: 10px;
+	border: 1px solid rgba(79, 79, 75);
+	outline:none;
+}
+
+.form-input-reg, .form-input-set-password {
+	width: 210px;
+	height: 25px;
+    margin-bottom: 5px;
+	border-radius: 10px;
+	border: 1px solid rgba(79, 79, 75);
+	outline:none;
+}
+
+.form-input-reg:hover, .form-input-auth:hover, .form-input-set-password:hover {
+	border: 2px solid rgba(242, 220, 48);
+	outline:none;
+}
+
+.entrance, .registration {
+	text-align: center;
+	width: 220px;
+	padding: 10px;
+	background-color: rgba(242, 220, 48);
+	border: none;
+	border-radius: 10px;
+	margin-top: 5px;
+    color: rgba(79, 79, 75);
+}
+
+.entrance:hover, .registration:hover {
+	background-color: rgba(245, 238, 188);
+    color: rgba(115, 114, 111);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.overlay {
+    margin: 80px 0 0 450px;
+	width: 500px;
+	height: 270px;
+	padding: 50px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 30px 10px 40px rgba(79, 79, 75, 0.3);
+}
+
+.hint {
+    font-size: 10pt;
+    color: rgba(88, 88, 88, 1);
+    height: 5px;
+}
+

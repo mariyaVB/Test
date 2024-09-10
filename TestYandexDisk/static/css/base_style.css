@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    width: 100vw;
+}
+
+.header {
+    height: 70px;
+}
+
+.user {
+    float: right;
+    margin: 20px 50px 0 0;
+}
+
+.user> a >.logout {
+    width: 25px;
+    height: 25px;
+}

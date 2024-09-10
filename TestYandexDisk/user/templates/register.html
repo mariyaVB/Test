@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/login-register_style.css' %}" />
+    <title>{{ title }}</title>
+{% endblock head_title %}
+
+{% block base_content %}
+
+<div class="overlay">
+    <h2 class="form-title">{{ title }}</h2>
+    <form class="form" method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for form_register in form %}
+            <div>{{ form_register }}</div>
+            <div class="form-error">{{ form_register.errors }}</div>
+        {% endfor %}
+
+        <button class="registration" type="submit">Зарегистрироваться</button><br>
+    </form>
+
+    <span class="hint">Постоянный пользователь:</span><br>
+    <a href="{% url 'login' %}"><button class="entrance">Авторизация</button></a>
+</div>
+
+{% endblock base_content %}

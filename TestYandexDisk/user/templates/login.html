@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/login-register_style.css' %}" />
+    <title>{{ title }}</title>
+{% endblock head_title %}
+
+{% block base_content %}
+<div class="overlay">
+    <h2 class="form-title">{{ title }}</h2>
+    <form method="post" action="{% url 'login' %}" >
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for form_auth in form %}
+            {% if form_auth.name == 'username' %}
+                <div class="log">
+                    <label class="form-img"><img src="{% static 'icons/icon-user-login.png' %}"></label>
+                    {{ form_auth }}
+                </div>
+                <div class="form-error">{{ form_auth.errors }}</div>
+            {% endif %}
+            {% if form_auth.name == 'password' %}
+                <div class="pas">
+                    <label class="form-img"><img src="{% static 'icons/icon-password.png' %}"></label>
+                    {{ form_auth }}
+                </div>
+                <div class="form-error">{{ form_auth.errors }}</div>
+            {% endif %}
+        {% endfor %}
+
+        <button class="entrance">Войти</button><br>
+    </form>
+
+    <span class="hint">Новый пользователь:</span><br>
+    <a href="{% url 'register' %}"><button class="registration">Регистрация</button></a>
+</div>
+{% endblock base_content %}
