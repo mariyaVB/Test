@@ -1,5 +1,7 @@
+from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView, PasswordChangeView, LogoutView
-from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 from user.forms import UserLoginForm, UserRegisterForm, UserPasswordChangeForm
 

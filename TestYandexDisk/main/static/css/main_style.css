@@ -1,0 +1,37 @@
+.hi {
+    text-align: center;
+}
+
+.start {
+    a {
+        text-decoration: none;
+    }
+	text-align: center;
+	width: 220px;
+	padding: 10px;
+	background-color: rgba(242, 220, 48);
+	border: none;
+	border-radius: 10px;
+	margin-top: 5px;
+    color: rgba(79, 79, 75);
+}
+
+.start:hover {
+	background-color: rgba(245, 238, 188);
+    color: rgba(115, 114, 111);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.inp_key {
+	width: 300px;
+	height: 25px;
+    margin-bottom: 5px;
+	border-radius: 10px;
+	border: 1px solid rgba(79, 79, 75);
+	outline: none;
+}
+
+.file_list {
+    list-style-type: none;
+}

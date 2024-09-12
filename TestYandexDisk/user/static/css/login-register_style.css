@@ -22,7 +22,7 @@
 	margin-bottom: 5px;
 	border-radius: 10px;
 	border: 1px solid rgba(79, 79, 75);
-	outline:none;
+	outline: none;
 }
 
 .form-input-reg, .form-input-set-password {
@@ -31,7 +31,7 @@
     margin-bottom: 5px;
 	border-radius: 10px;
 	border: 1px solid rgba(79, 79, 75);
-	outline:none;
+	outline: none;
 }
 
 .form-input-reg:hover, .form-input-auth:hover, .form-input-set-password:hover {
