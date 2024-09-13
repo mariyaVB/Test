@@ -12,6 +12,11 @@ body {
     margin: 20px 50px 0 0;
 }
 
+.main {
+    float: left;
+    margin: 20px 0 50px 0;
+}
+
 .user> a >.logout {
     width: 25px;
     height: 25px;

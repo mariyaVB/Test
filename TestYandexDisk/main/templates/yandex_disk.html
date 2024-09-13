@@ -6,21 +6,21 @@
 {% endblock head_title %}
 
 {% block base_content %}
-    <div class="hi">
+    <div class="find_file">
         <h1>Просмотр файлов Яндекс.Диска</h1>
         <form method="get">
             <input class="inp_key" type="text" name="public_key" placeholder="Введите публичный ключ" required>
             <button class="start" type="submit">Показать файлы</button>
         </form>
 
-        {% if files and public_key %}
+        {% if files and public_key or download_link %}
             <div>
                 <h2>Список файлов и папок:</h2>
                 <ul class="file_list">
                     {% for file in files %}
-                        <li data-mime-type="{{ file.mime_type|default:'unknown' }}">
+                        <li data-mime-type="{{ file.mime_type | default:'unknown' }}">
                             {% if file.type == 'dir' %}
-                                📁 {{ file.name }}
+                                📂 {{ file.name }}
                             {% elif file.type == 'file' %}
                                 📄 {{ file.name }}
                                 <a href="{{ file.file }}" target="_blank">Скачать</a>
@@ -29,19 +29,21 @@
                     {% endfor %}
                 </ul>
             </div>
+    <form method="get" action="{% url 'download' %}">
+        <input type="hidden" name="download" value="{{ public_key }}">
+        <button class="start" type="submit">Скачать все</button>
+    </form>
 
-            <form method="get" action="{% url 'download' %}">
-                <input type="hidden" name="download" value="{{ public_key }}">
-                <button type="submit">Скачать все</button>
-            </form>
-            <div>
-                {% if link %}
-                    <a href="{{ link }}" type="hidden"><p>Ссылка для скачивания</p></a>
-                {% endif %}
-            </div>
+    <div>
+        {% if download_link %}
+            <a href="{{ download_link }}" type="hidden"><button class="start">Ссылка для скачивания</button></a>
+        {% endif %}
+    </div>
         {% elif public_key %}
             <p>Файлы не найдены или произошла ошибка при получении данных.</p>
         {% endif %}
     </div>
+
+
 
 {% endblock base_content %}

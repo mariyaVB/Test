@@ -11,12 +11,10 @@ class LoginUser(LoginView):
     template_name = 'login.html'
     extra_context = {'title': 'Авторизация'}
 
-    def get_success_url(self):
-        return reverse_lazy('main')
 
-
-class LogoutUser(LogoutView):
-    next_page = reverse_lazy('main')
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('main'))
 
 
 class RegisterUser(CreateView):
@@ -26,9 +24,3 @@ class RegisterUser(CreateView):
     success_url = reverse_lazy('login')
 
 
-class UserPasswordChange(PasswordChangeView):
-    form_class = UserPasswordChangeForm
-    success_url = reverse_lazy('password_change_done')
-    template_name = 'password_change_form.html'
-    title = 'Смена пароля'
-    extra_context = {'title': 'Изменение пароля'}
